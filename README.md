@@ -30,22 +30,30 @@ Finally, you will complete a machine learning approach to building recommendatio
 
 ## 2. Project Summary and Thoughts<a name="summary"></a>
 I. Content Based Recommendations(EXTRA)
+
 - Pathway
+
 Content features, essentially key words was identified by condcting NPL analysis on article titles. Dot product was used to calculate the similarities among articles based on article features. Given a certain article, the most similar articles is provided based on dot product result.
+
 - Code
+
 While conducting NPL analysis, pipeline was used to keep the process clean and easy to alter later on.
 
 - A comprehensive recommendation solution blending with content-based recommendation, collaborative filtering and knowledge based solutions.
 The recommendation system has been further built into a comprehensive one: blend with content-based recommendation, collaborative filtering and knowledge based solutions. It expands the capability to give recomendations to either articles or users in database, and even to brand new users.
 
 II. Matrix Factorization Solution 
+
 - Cold Start Problem 
+
 Regarding the current Matrix Factorization Solution, it couldn't handle cold start probelem. In other words, it couldn't provide recommendations for users that are not in the training set. In such case, content based and ranked based solutions are way to go for new users.
 
 - The Data Imbalance
+
 The accuracy of testing result was expecting to increase, as the accuracy of training result increased, along with the increasing number of latent features. However,it dropped. It could potentially due to the imbalance of dataset issue. The dataset was splited into training and testing sets. But it only got 20 users in testing set that could be used for model validation, as such users were also in the training set. The imbanlance data, and very limited number of users for model validation impacted the overall model accuracy. We could futher shuffle datasets before spliting training/testing data sets and iterate modeling process for stable recommendation results.
 
 - Model Evalution 
+
 When evaluating of the model, the sum of absolute error was divided by the size of user_by_article matrix including all the counts of user-article connection valued 0. It is worth addressing that the user_by_article matrix is very sparsed; huge amount of user-article had none connections. To further improve the evalution, we should only count the number of user-article that had connections, and evaluate the prediction errors upon those. Specifically, the sum of absolute error should be divided by the number of non-0 user-article counts.
 
 ## 3. Licensing, Authors and Acknowledgements<a name="licensing"></a>
